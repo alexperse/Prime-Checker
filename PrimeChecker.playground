@@ -1,0 +1,33 @@
+//2019 Alex Perse - alexperse.com
+
+var isPrimeStatus = false
+
+func isPrime (_ x: Int) -> Bool {
+    var compositeCount = 0
+    if (x <= 1) {
+        isPrimeStatus = false
+    }
+    else if (x > 1) {
+        for number in 2...x {
+            if (x % number == 0) {
+                compositeCount += 1
+            }
+        }
+    }
+    if (x <= 1 || compositeCount > 1) {
+        isPrimeStatus = false
+    } else if (x > 1) {
+        isPrimeStatus = true
+    }
+    return isPrimeStatus
+}
+
+func printPrimes(upTo n: Int) {
+    for number in 0...n {
+        if (isPrime(number) == true) {
+            print("\(number) is prime.")
+        }
+    }
+}
+
+printPrimes(upTo: 1000)
